@@ -1,37 +1,66 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Mi lista de compras</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="manifest" href="site.webmanifest">
-        <link rel="apple-touch-icon" href="icon.png">
-        <!-- Place favicon.ico in the root directory -->
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-    </head>
-    <body>
-        <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Ple<href="https://browsehappy.com/">upgrade your browser</a> to improve yexperience ansecurity.</p>
+    <![endif]-->
 
-        <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-        <script src="js/vendor/modernizr-3.5.0.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+    <!-- Add your site or application content here -->
+    <ul>
+      <li>Lista de Compras</li>
+      <li>Estadísiticas</li>
+      <li>Artículos</li>
+      <li>Acerca</li>
+    </ul>
+    
+    <p>Ingresa la comida y despensa en el inventario.</p>
+    <form>
+      <input id="txtAticle" type="text" placeholder="Artículo"><br>
+      <input id="txtCategory" type="text" placeholder="Categoría"><br>
+      <input id="txtUPrice" type="number" placeholder="Precio Unitario"><br>
+      <select id="nmbrUnit" value="select"><br>
+        <option value="unit">Unidad</option>
+        <option value="kg">Kg</option>
+        <option value="lt">Lt</option>
+      </select><br>
+      <input id="txtRecommended" type="number" placeholder="Cantidad Recomendada"><br>
+      <input id="btnAddArticle" type="button">
+    </form>
+    
+    <div id="about">
+      <p>Esta es una pequeña web app que me ayudará a crear listas de compras semanales presupuestadas.</p>
+      <p>Actualizaciones futuras</p>
+      <p>Espero poder actualizar los precios de las artículos de manera automática conectándolo con un API de Walmart que ya existe, pero debo revisar si los precios pueden ser en pesos mexicanos.</p>
+    </div>
+    
+    
+    
+    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js<\/script>')</script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
 
-        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-        <script>
-            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-            ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
-        </script>
-        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
-    </body>
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+      window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+      ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+  </body>
 </html>
