@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    
     <link rel="manifest" href="site.webmanifest">
     <link rel="apple-touch-icon" href="icon.png">
     <!-- Place favicon.ico in the root directory -->
@@ -29,11 +30,11 @@
     
     <p>Ingresa la comida y despensa en el inventario.</p>
     <form>
-      <input id="txtAticle" type="text" placeholder="Artículo"><br>
+      <input id="txtArticle" type="text" placeholder="Artículo"><br>
       <input id="txtCategory" type="text" placeholder="Categoría"><br>
       <input id="txtUPrice" type="number" placeholder="Precio Unitario"><br>
-      <select id="nmbrUnit" value="select"><br>
-        <option value="unit">Unidad</option>
+      <select id="unitName" value="select"><br>
+        <option value="u">u</option>
         <option value="kg">Kg</option>
         <option value="lt">Lt</option>
       </select><br>
@@ -48,11 +49,10 @@
     </div>
     
     
-    
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
     <script src="js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js<\/script>')</script>
-    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
 
