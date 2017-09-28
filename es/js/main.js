@@ -1,6 +1,7 @@
 function main() {
   "use strict";
   var database;
+  
   var config = {
     apiKey: "AIzaSyDFPaQhc4qfMsVSUEkbzU33D2fK0FFgAzQ",
     authDomain: "groceries-budget.firebaseapp.com",
@@ -10,7 +11,9 @@ function main() {
     messagingSenderId: "216666611946"
   };
   firebase.initializeApp(config);
+  
   database = firebase.database();
+  
   
   var ref = database.ref('es/frutasVegetales');
   ref.on('value', gotData, errData);
@@ -19,11 +22,14 @@ function main() {
     var articles = data.val();
     var keys = Object.keys(articles);
     console.log(keys);
+    $('articles-list').remove();
     for (var i = 0; i < keys.length; i++) {
       var k = keys[i];
       var article = articles[k].Article;
       var uprice = articles[k].UnitPrice;
-      console.log(article,uprice,k,articles);
+      var recommended = articles[k].RecommendedCuantity;
+      //console.log(article,uprice,k,articles);
+      $('.articles-list').append('<tr><td>' + article + '</td><td>' + uprice + '</td><td>' + recommended + '</td></tr>');
     }
   }
   

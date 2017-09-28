@@ -27,7 +27,8 @@
       <li>Acerca</li>
     </ul>
     
-    <p>Ingresa la comida y despensa en el inventario.</p>
+    
+    <p>Ingresa los artículos en tu base de datos.</p>
     <form>
       <input id="txtArticle" type="text" placeholder="Artículo"><br>
       <select id="txtCategory" type="text" placeholder="Categoría">
@@ -54,6 +55,20 @@
       <input id="nmbrRecommended" type="number" placeholder="Cantidad Recomendada"><br>
       <input id="btnAddArticle" type="button" value="Agregar">
     </form>
+    
+    <div>
+      <table class="articles-table">
+        <thead>
+          <tr>
+            <th>Artículo</th>
+            <th>Precio Unitario</th>
+            <th>Cantidad Recomendada</th>
+          </tr>
+        </thead>
+        <tbody class="articles-list">
+        </tbody>
+      </table>
+    </div>
     
     <div id="about">
       <p>Esta es una pequeña web app que me ayudará a crear listas de compras semanales presupuestadas.</p>
