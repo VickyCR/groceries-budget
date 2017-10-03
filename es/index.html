@@ -27,33 +27,71 @@
       <li>Acerca</li>
     </ul>
     
-    <p>Ingresa la comida y despensa en el inventario.</p>
+    
+    <p>Ingresa los artículos en tu base de datos.</p>
     <form>
       <input id="txtArticle" type="text" placeholder="Artículo"><br>
-      <select id="txtCategory" type="text" placeholder="Categoría">
-        <option value="despensa">Despensa</option>
-        <option value="lacteos">Lácteos</option>
-        <option value="frutasVegetales">Frutas y Verduras</option>
-        <option value="carnesPescados">Carnes y Pescados</option>
-        <option value="salchichoneria">Salchichonería</option>
-        <option value="panaderiaTortilleria">Panadería y Tortillería</option>
-        <option value="jugosBebidas">Jugos y Bebidas</option>
-        <option value="cervezasVinosLicores">Cervezas, Vinos y Licores</option>
-        <option value="congelados">Congelados</option>
-        <option value="limpiezaMascotas">Limpieza y Mascotas</option>
-        <option value="bebes">Bebés</option>
-        <option value="farmacia">Farmacia</option>
+      <select id="txtCategory" type="text">
+        <option disabled selected>Categoría</option>
+        <option>Despensa</option>
+        <option>Lácteos</option>
+        <option>Frutas y Verduras</option>
+        <option>Carnes y Pescados</option>
+        <option>Salchichonería</option>
+        <option>Panadería y Tortillería</option>
+        <option>Jugos y Bebidas</option>
+        <option>Cervezas, Vinos y Licores</option>
+        <option>Congelados</option>
+        <option>Limpieza y Mascotas</option>
+        <option>Bebés</option>
+        <option>Farmacia</option>
         <option>Higiene y Belleza</option>
       </select><br>
       <input id="nmbrUnitPrice" type="number" placeholder="Precio Unitario"><br>
       <select id="txtUnitName" value="select">
-        <option value="u">u</option>
-        <option value="kg">Kg</option>
-        <option value="lt">Lt</option>
+        <option>u</option>
+        <option>Kg</option>
+        <option>Lt</option>
       </select><br>
       <input id="nmbrRecommended" type="number" placeholder="Cantidad Recomendada"><br>
       <input id="btnAddArticle" type="button" value="Agregar">
     </form>
+    
+    <div>
+      <form>
+        <select id="srchCategory" type="text">
+          <option disable selected>Todos</option>
+          <option>Despensa</option>
+          <option>Lácteos</option>
+          <option>Frutas y Verduras</option>
+          <option>Carnes y Pescados</option>
+          <option>Salchichonería</option>
+          <option>Panadería y Tortillería</option>
+          <option>Jugos y Bebidas</option>
+          <option>Cervezas, Vinos y Licores</option>
+          <option>Congelados</option>
+          <option>Limpieza y Mascotas</option>
+          <option>Bebés</option>
+          <option>Farmacia</option>
+          <option>Higiene y Belleza</option>
+        </select>
+        <input id="srchName" type="text" placeholder="Search" value="">
+        <span id="btnSearch">Buscar</span>
+      </form>
+     
+      <table class="articles-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Artículo</th>
+            <th>Precio Unitario</th>
+            <th>Cantidad Recomendada</th>
+          </tr>
+        </thead>
+        <tbody class="articles-list">
+        </tbody>
+      </table>
+    </div>
     
     <div id="about">
       <p>Esta es una pequeña web app que me ayudará a crear listas de compras semanales presupuestadas.</p>
