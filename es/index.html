@@ -31,7 +31,8 @@
     <p>Ingresa los artículos en tu base de datos.</p>
     <form>
       <input id="txtArticle" type="text" placeholder="Artículo"><br>
-      <select id="txtCategory" type="text" placeholder="Categoría">
+      <select id="txtCategory" type="text">
+        <option disabled selected>Categoría</option>
         <option>Despensa</option>
         <option>Lácteos</option>
         <option>Frutas y Verduras</option>
@@ -58,7 +59,8 @@
     
     <div>
       <form>
-        <select id="txtCategory" type="text" placeholder="Categoría">
+        <select id="srchCategory" type="text">
+          <option disable selected>Todos</option>
           <option>Despensa</option>
           <option>Lácteos</option>
           <option>Frutas y Verduras</option>
@@ -73,7 +75,7 @@
           <option>Farmacia</option>
           <option>Higiene y Belleza</option>
         </select>
-        <input type="text" id="search" placeholder="Search">
+        <input id="srchName" type="text" placeholder="Search" value="">
         <span id="btnSearch">Buscar</span>
       </form>
      

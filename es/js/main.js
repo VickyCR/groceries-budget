@@ -1,6 +1,9 @@
 function main() {
   "use strict";
   var database;
+  var ref;
+  var srchCategory = $('#srchCategory').val();
+  var srchName = $('#srchName').val();
   
   var config = {
     apiKey: "AIzaSyDFPaQhc4qfMsVSUEkbzU33D2fK0FFgAzQ",
@@ -13,6 +16,7 @@ function main() {
   firebase.initializeApp(config);
   
   database = firebase.database();
+  ref = database.ref('es');
   
   $('#btnAddArticle').on('click', function(){
     var article = $('#txtArticle').val(),
@@ -24,7 +28,6 @@ function main() {
     $('.articles-list').empty();
     
     var refAdd = database.ref('es/' + category);
-    
     var data = {
       RecommendedCuantity: recommended,
       UnitName: unitName,
@@ -34,36 +37,48 @@ function main() {
     }
     refAdd.push(data);
     //var result = refAdd.push(data);
-    console.log('Acabo de subir data');
     //console.log(result.key);
-    //FIXME Se está llamando primero a gotData por alguna razón... averiguar y corregir esta situación insportable... aaaaaah T_T
     
   });
   
   $('#btnSearch').on('click', function() {
     //TODO search queries
+    var refSrch;
+    var refSrchName;
+    
+    srchCategory = $('#srchCategory').val();
+    srchName = $('#srchName').val();
+    
+    $('.articles-list').empty();
+    //TODO Invetigar como al cambiar selector se busca solo son necesidad de dar click en buscar.
+    if ( srchCategory === 'Todos' && srchName === '' ) {
+      ref.on('value', gotCategory);
+    } else if ( srchCategory !== 'Todos' && srchName === '') {
+      refSrch = database.ref('es/' + srchCategory);
+      refSrch.on('value', gotData);
+    } 
+    //TODO Hay que hacer un search por palabra, investigar como ocultar DOM através de jquery, o utilizar JS normal. También se puede buscar por palabra en la base de datos, pero JS te oculta los "no resultados" mientras ingresas la búsqueda.
+    /*else if ( srchCategory === 'Todos' && srchName !== '') {
+      ref.on('value', searchCategory)
+    }*/
+    
   });
   
-  var ref = database.ref('es');
-  ref.on('value', gotCategory);
+  if ( srchCategory === 'Todos' && srchName === ''  ) {
+    ref.on('value', gotCategory);
+  }
   
  }
 $(document).ready(main);
 
+
+
 function gotCategory(data) {
-  var departments = data.val();
-  var categories = Object.keys(departments);
-  //console.log('departments var');
-  //console.log(departments);
-  //console.log('categories var');
-  //console.log(categories);
-  console.log('Estoy obteniendo la categoría')
-  for (var i = 0; i < categories.length; i++) {
-    console.log('hola ',i);
-    console.log('Estoy enviando la categoría', categories[i]);
-    //console.log(categories[i]);
-    var database = firebase.database();
-    var refCategory = database.ref('es/' + categories[i]);
+  var database = firebase.database();
+  var categories = data.val();
+  var keys = Object.keys(categories);
+  for (var i = 0; i < keys.length; i++) {
+    var refCategory = database.ref('es/' + keys[i]);
     refCategory.on('value', gotData, errData);
     refCategory.off('value', gotData);
   }
@@ -72,11 +87,6 @@ function gotCategory(data) {
 function gotData(data) {
   var articles = data.val();
   var keys = Object.keys(articles);
-  //console.log('articles var');
-  //console.log(articles);
-  //console.log('keys var');
-  //console.log(keys);
-  console.log('Recibí categoría y voy a imprimir los artículos')
   for (var i = 0; i < keys.length; i++) {
     var k = keys[i];
     var category = articles[k].Category;
@@ -84,8 +94,6 @@ function gotData(data) {
     var unitPrice = articles[k].UnitPrice;
     var unitName = articles[k].UnitName;
     var recommended = articles[k].RecommendedCuantity;
-    //console.log(k);
-    console.log('Estoy analizando un artículo')
     $('.articles-list').append('<tr><td>' + category + '</td><td>' + article + '</td><td>' + unitPrice + ' / ' + unitName + '</td><td>' + recommended + '</td></tr>');
   }
 }
@@ -94,3 +102,15 @@ function errData(err) {
   console.log('Error');
   console.log(err);
 }
+
+/*function search (toSearch) {
+  //var database = firebase.database();
+  var categories = data.val();
+  var keys = Object.keys(articles);
+  for (var i = 0; i < keys.length; i++) {
+    if ( toSearch  )
+  }
+}
+
+function searchData (data) {
+}*/
